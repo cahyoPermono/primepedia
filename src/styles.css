@@ -4,7 +4,8 @@
 @tailwind utilities;
 
 body {
-  background-color: #161d31;
+  /* background-color: #161d31; */
+  background-color: #025564;
 }
 
 .material-icons.text-base {
@@ -12,7 +13,8 @@ body {
 }
 
 .bg-secondary {
-  background-color: #283046;
+  /* background-color: #283046; */
+  background-color: #00677A;
 }
 
 .bg-gradient {
