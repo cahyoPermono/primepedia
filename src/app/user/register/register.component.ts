@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,6 +8,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  constructor(private authService: AuthService) {}
+
+  inSubmission = false;
+
   name = new FormControl('', [Validators.required, Validators.minLength(3)]);
   email = new FormControl('', [Validators.required, Validators.email]);
   age = new FormControl('', [
@@ -27,7 +32,7 @@ export class RegisterComponent {
 
   showAlert = false;
   alertColor = 'blue';
-  alertMsg = 'Please Wait Your Account is being created!!'
+  alertMsg = 'Please Wait Your Account is being created!!';
 
   registerForm = new FormGroup({
     name: this.name,
@@ -38,9 +43,24 @@ export class RegisterComponent {
     phoneNumber: this.phoneNumber,
   });
 
-  register(){
+  async register() {
     this.showAlert = true;
-    this.alertMsg = 'Please Wait Your Account is being created!!'
+    this.alertMsg = 'Please Wait Your Account is being created!!';
     this.alertColor = 'blue';
+    this.inSubmission = true;
+
+    try {
+      await this.authService.createUser(this.registerForm.value);
+      this.inSubmission = false;
+    } catch (error) {
+      console.error(error);
+      this.alertMsg = 'Something unexpected occured, please try again later!!';
+      this.alertColor = 'red';
+      this.inSubmission = false;
+      return;
+    }
+
+    this.alertMsg = 'Successfully Registered';
+    this.alertColor = 'green';
   }
 }
