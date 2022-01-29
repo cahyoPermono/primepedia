@@ -1,5 +1,6 @@
 <!-- Login Form -->
 <form #loginForm = "ngForm" (ngSubmit)="login()">
+  <app-alert *ngIf="showAlert" [color]="alertColor">{{ alertMsg }}</app-alert>
   <!-- Email -->
   <div class="mb-3">
     <label class="inline-block mb-2">Email</label>
@@ -56,7 +57,7 @@
     <p *ngIf="password.errors && password.touched" class="text-red-300">Password cannot be null</p>
   </div>
   <button
-    [disabled]="loginForm.invalid"
+    [disabled]="loginForm.invalid || inSubmission"
     type="submit"
     class="
       block
