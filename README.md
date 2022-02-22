@@ -31,3 +31,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 1. ngx-mask
 2. angular fire / firebase
 3. uuid (npm i uuid @types/uuid)
+4. npm i @ffmpeg/ffmpeg @ffmpeg/core (experimental)
+5. npm i @types/node -> ffmpeg harus dikasih ini biar typescript bisa baca
