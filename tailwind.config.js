@@ -14,5 +14,7 @@ module.exports = {
       bacgroundColor: ['disabled'],
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/aspect-ratio")
+  ],
 }

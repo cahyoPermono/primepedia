@@ -33,3 +33,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 3. uuid (npm i uuid @types/uuid)
 4. npm i @ffmpeg/ffmpeg @ffmpeg/core (experimental)
 5. npm i @types/node -> ffmpeg harus dikasih ini biar typescript bisa baca
+6. npm i video.js @types/video.js @videojs/themes untuk play video
+7. npm i @tailwindcss/aspect-ratio untuk ngatur besaran size vvideo dengan mudah
+
