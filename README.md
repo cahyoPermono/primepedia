@@ -36,3 +36,24 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 6. npm i video.js @types/video.js @videojs/themes untuk play video
 7. npm i @tailwindcss/aspect-ratio untuk ngatur besaran size vvideo dengan mudah
 
+## How to Deploy to server
+1. set header for ffmpeg
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Embedder-Policy",
+          "value": "require-corp"
+        }
+      ]
+    }
+  ]
+}
+
+2. 
